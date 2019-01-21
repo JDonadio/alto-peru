@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  padding: .5rem 0;
+  color: white;
+  background-color: #d21717;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.nickname {
+  margin: auto 0 auto 0;
+}
+
+.user-options {
+  display: flex;
+  button {
+    margin: 0 .3rem;
+  }
+}
+
+.card {
+  margin-bottom: 1rem;
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    .title {
+    }
+    .time {
+    }
+    .mandatory {
+      font-weight: 500;
+    }
+  }
+
+  .card-body {
+    .card-title {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.asd {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spinner {
+  margin: 20% 50%;
+}

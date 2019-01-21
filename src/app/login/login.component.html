@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <label for="nickname">Nickname</label>
+                <input type="text" name="nickname" [(ngModel)]="form.nickname" class="form-control" required autofocus>
+              </div>
+              <div class="form-label-group">
+                <label for="position">Posición</label>
+                <select class="form-control" [(ngModel)]="selectedPosition" name="position">
+                  <option *ngFor="let position of positionList" [value]="position">{{position | uppercase}}</option>
+                </select>
+              </div>
+              <div class="form-label-group">
+                <label for="number">Camiseta</label>
+                <input type="number" name="number" [(ngModel)]="form.number" class="form-control" required>
+              </div>
+
+              <hr class="my-4">
+              
+              <button class="btn btn-lg btn-google btn-block text-uppercase" (click)="login()"
+                [disabled]="!form.nickname || !form.position"><i class="fab fa-google mr-2"></i>
+                Ingresar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
