@@ -23,17 +23,19 @@ export class AuthService {
   login(userData: any) {
     localStorage.setItem('user', JSON.stringify(userData));
     this.myRoute.navigate(['home']);
-    var ref = this.db.object(`users`);
-    var key = userData.nickname;
-    ref.update({ [key]: userData });
-    return;
+    this.db.object('users/' + userData.nickname).valueChanges().subscribe((user: any) => {
+      if (user && user.role == 'admin') userData.role = 'admin';
+      var ref = this.db.object('users');
+      var key = userData.nickname;
+      ref.update({ [key]: userData });
+      return;
+    });
   }
 
   async loginWithGoogle(nickname: string) {
     try {
       const res = await this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
       localStorage.setItem('user', JSON.stringify(res.additionalUserInfo));
-      localStorage.setItem('nickname', nickname);
       console.log(res);
       this.myRoute.navigate(['home']);
       return;
@@ -47,7 +49,6 @@ export class AuthService {
   
   logout() {
     localStorage.removeItem('user');
-    localStorage.removeItem('nickname');
     console.log('Logged Out!');
     this.myRoute.navigate(['login']);
     return this.afAuth.auth.signOut();

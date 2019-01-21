@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
         console.log(_.map(result.userList, u => { return u.ready == true }))
         result.confirmed = _.compact(_.map(result.userList, 'ready')).length;
         return result;
-      })
+      });
       this.loading = false;
       console.log(this.events);
     }, error => {
