@@ -55,7 +55,7 @@
           <div class="time">Horario: {{e.time}}</div>
           <div class="mandatory">{{(e.isMandatory ? 'Obligatorio' : 'Opcional') | uppercase}}</div>
           <div class="remove" *ngIf="user.role && user.role == 'admin'">
-            <button class="btn btn-danger" (click)="remove()"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-danger" (click)="removeEvent(e)"><i class="fa fa-trash"></i></button>
           </div>
         </div>
         <div class="card-body">

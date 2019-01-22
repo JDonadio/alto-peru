@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
         console.log(_.map(result.userList, u => { return u.ready == true }))
         result.confirmed = _.compact(_.map(result.userList, 'ready')).length;
         return result;
-      });
+      }).reverse();
       this.loading = false;
       console.log(this.events);
     }, error => {
@@ -80,9 +80,21 @@ export class HomeComponent implements OnInit {
   }
 
   createEvent() {
-    console.log(this.form);
     let ref = this.db.list('events');
     ref.push(this.form);
     this.showForm = false;
+  }
+
+  removeEvent(event) {
+    if (!this.askFormDelete(event.title)) return;
+
+    this.db.object(`events/${event.key}`).remove();
+    console.log('Event removed!');
+  }
+
+  private askFormDelete(name) {
+    let msg = `¿Estás seguro de eliminar el evento: ${name}?`;
+    if (confirm(msg)) return true;
+    return false;
   }
 }
