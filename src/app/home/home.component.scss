@@ -9,7 +9,11 @@
 }
 
 .nickname {
-  margin: auto 0 auto 0;
+  display: flex;
+  align-items: center;
+  .name {
+    padding-left: 1rem;
+  }
 }
 
 .user-options {
@@ -25,10 +29,7 @@
   .card-header {
     display: flex;
     justify-content: space-between;
-    .title {
-    }
-    .time {
-    }
+    align-items: center;
     .mandatory {
       font-weight: 500;
     }
