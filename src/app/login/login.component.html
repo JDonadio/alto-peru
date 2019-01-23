@@ -4,10 +4,15 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
+            <div class="title">
+              <div class="img">
+                <img src="assets/img/escudo.png" width="30px" alt="">
+              </div>
+              <div class="card-title">Alto Perú</div>
+            </div>
             <form class="form-signin">
               <div class="form-label-group">
-                <label for="nickname">Nickname</label>
+                <label for="nickname">PSN ID</label>
                 <input type="text" name="nickname" [(ngModel)]="form.nickname" class="form-control" required autofocus>
               </div>
               <div class="form-label-group">
@@ -24,7 +29,7 @@
               <hr class="my-4">
               
               <button class="btn btn-lg btn-google btn-block text-uppercase" (click)="login()"
-                [disabled]="!form.nickname || !form.position"><i class="fab fa-google mr-2"></i>
+                [disabled]="!form.nickname || !form.position"><i class="fa fa-lemon"></i>
                 Ingresar</button>
             </form>
           </div>

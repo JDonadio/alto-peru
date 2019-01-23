@@ -12,6 +12,13 @@ body {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.card-body {
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .card-signin {
   border: 0;
   border-radius: .2rem;

@@ -26,6 +26,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    let user: any = JSON.parse(localStorage.getItem('user'));
+    console.log(user)
+    if (user == null) return;
+
+    this.form.nickname = user.nickname;
+    this.selectedPosition = user.position;
+    this.form.number = user.number;
   }
 
   login() {
